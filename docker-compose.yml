@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: ./docker/nginx
+    ports:
+      - 80:80
+    tty: true
+
+  app:
+    build:
+      context: ./docker/app
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./workspace:/opt/node_app/app"
+    command: 'npm run dev'
+    tty: true
+
+  mongo:
+    image: mongo:latest
+    restart: always
+    tty: true
+    ports:
+      - 27018:27017
