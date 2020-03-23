@@ -2,6 +2,8 @@
 setlocal
 pushd "%~dp0"
 
+chcp 65001
+
 set selfname=%~n0
 set ret_success=echo successed!
 set ret_fail=echo error! %~n0

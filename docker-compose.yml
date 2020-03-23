@@ -11,8 +11,6 @@ services:
   app:
     build:
       context: ./docker/app
-    ports:
-      - "3000:3000"
     volumes:
       - "./workspace:/opt/node_app/app"
     command: 'npm run dev'
