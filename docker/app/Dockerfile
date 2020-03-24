@@ -15,4 +15,3 @@ ENV PATH /opt/node_app/node_modules/.bin:$PATH
 WORKDIR /opt/node_app/app
 
 ENV HOST 0.0.0.0
-EXPOSE 8080
