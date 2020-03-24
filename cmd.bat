@@ -2,9 +2,8 @@
 setlocal
 pushd "%~dp0"
 
-chcp 65001
-
 set selfname=%~n0
+set prfix=docker-compose
 set ret_success=echo successed!
 set ret_fail=echo error! %~n0
 
@@ -77,33 +76,33 @@ echo (%selfname%) Error! %*
 exit /b
 
 :up
-docker-compose up -d
+%prfix% up -d
 exit /b
 
 :down
-docker-compose down
+%prfix% down
 %ret_success%
 exit /b
 
 :ps
-docker-compose ps
+%prfix% ps
 exit /b
 
 :build
-docker-compose build
-docker-compose up -d
+%prfix% build
+%prfix% up -d
 %ret_success%
 exit /b
 
 :debug
-docker-compose up
+%prfix% up
 %ret_success%
 exit /b
 
 :login
-docker-compose exec app bash
+%prfix% exec app bash
 exit /b
 
 :remort
-docker-compose exec app ssh strategy
+%prfix% exec app ssh strategy
 exit /b
